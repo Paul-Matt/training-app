@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//tähän voisi tehdä esim.sääpäiväkirjalomakkeen?
 //class-tyyppinen, koska renderoi käyttöliittymää
 class HarjoitusLomake extends Component {
 	constructor(props) {
@@ -7,7 +6,7 @@ class HarjoitusLomake extends Component {
 		/*metodit sidottava luokkaan bindilla tai nuolinotaatiolla*/
 		this.muuta = this.muuta.bind(this);
 		this.lisaa = this.lisaa.bind(this);
-		this.state = {paiva: "", paikka: "", saa: "", kuvaus: ""};
+		this.state = {paiva: "", maastaveto: "", askelkyykky: "", ylatalja: "", pystypunnerrus: "", olankohautus: ""};
 		
 	}
 	/*e.targetname--> hae otsikko, e target value-->hae elementti*/
@@ -27,27 +26,56 @@ class HarjoitusLomake extends Component {
   render() {
     return (
 	<form>
-		
+	
 		<label style={styles.labelStyle} htmlFor="paiva">Päivä</label><br />
 		<input style={styles.inputStyle} type="text" value={this.state.paiva} 
 		name="paiva" onChange={ 
 		this.muuta } /><br />
 		
-		<label style={styles.labelStyle} htmlFor="paikka">Paikka</label><br />
-		<input style={styles.inputStyle} type="text" value={this.state.paikka} 
-		name="paikka" onChange={ 
+		<label style={styles.labelStyle} 
+		htmlFor="aktivoivat">Aktivoivat harjoitteet</label><br />
+		<textarea style={styles.inputStyle} rows = "4" cols = "40"
+		value={this.state.kuvaus} 
+		name="aktivoivat" onChange={ 
+		this.muuta }></textarea><br />
+		
+		<label style={styles.labelStyle} htmlFor="maastaveto">Sumomaastaveto</label><br />
+		<input style={styles.inputStyle} type="text" value={this.state.maastaveto} 
+		name="maastaveto" onChange={ 
 		this.muuta } /><br />
 	
-		<label style={styles.labelStyle} htmlFor="saa">Sää</label><br />
-		<input style={styles.inputStyle} type="text" value={this.state.saa} 
-		name="saa" onChange={ 
+		<label style={styles.labelStyle} htmlFor="askelkyykky">Askelkyykky</label><br />
+		<input style={styles.inputStyle} type="text" value={this.state.askelkyykky} 
+		name="askelkyykky" onChange={ 
+		this.muuta } /><br />
+		
+		<label style={styles.labelStyle} htmlFor="ylatalja">Ylätalja</label><br />
+		<input style={styles.inputStyle} type="text" value={this.state.ylatalja} 
+		name="ylatalja" onChange={ 
+		this.muuta } /><br />
+		
+		<label style={styles.labelStyle} htmlFor="pystypunnerrus">Pystypunnerrus</label><br />
+		<input style={styles.inputStyle} type="text" value={this.state.pystypunnerrus} 
+		name="pystypunnerrus" onChange={ 
+		this.muuta } /><br />
+		
+		<label style={styles.labelStyle} htmlFor="olankohautus">Olankohautus</label><br />
+		<input style={styles.inputStyle} type="text" value={this.state.olankohautus} 
+		name="olankohautus" onChange={ 
 		this.muuta } /><br />
 		
 		<label style={styles.labelStyle} 
-		htmlFor="kuvaus">Kuvaus</label><br />
+		htmlFor="extrat">Muut liikkeet</label><br />
 		<textarea style={styles.inputStyle} rows = "4" cols = "40"
 		value={this.state.kuvaus} 
-		name="kuvaus" onChange={ 
+		name="extrat" onChange={ 
+		this.muuta }></textarea><br />
+		
+		<label style={styles.labelStyle} 
+		htmlFor="fiilis">Miten treeni sujui?</label><br />
+		<textarea style={styles.inputStyle} rows = "4" cols = "40"
+		value={this.state.kuvaus} 
+		name="fiilis" onChange={ 
 		this.muuta }></textarea><br /><br />
 		
 		<input type="submit" value="Lisää" onClick={ this.lisaa } />
@@ -61,10 +89,10 @@ class HarjoitusLomake extends Component {
 /*sidottava labeleihin, jos ei ole tehty ulkoiseen tyylitiedostoon*/
 const styles = {
 	labelStyle: {
-		width: '6em',
+		width: '10em',
 		display: 'block',
 		float: 'left',
-		margin: '8px',
+		margin: '10px',
 		position: 'absolute',
 	},
 	inputStyle:{

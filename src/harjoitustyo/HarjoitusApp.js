@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route, Switch, NavLink} from'react-router-dom';
-import Aikataulut from './components/Aikataulut';
+import Askeleet from './components/Askeleet';
 import ListaaMerkinnatSivu from './pages/ListaaMerkinnatSivu';
-import LisaaPaivakirjaMerkinta from './pages/LisaaPaivakirjaMerkinta';
-import SaaSivu from './pages/SaaSivu';
-import LisaaReseptiSivu from './pages/LisaaReseptiSivu';
-/*tähän voisi lisätä myös kuntosaliharjoituspäiväkirjan, myöhemmin sitten lisätä puhelimesta askelmittarin tiedot */
+import LisaaTreeni from './pages/LisaaTreeni';
 class HarjoitusApp extends Component {
   render() {
     return (
@@ -19,17 +16,13 @@ class HarjoitusApp extends Component {
 function Layout(){
 	return (
 		<div>
-		<NavLink exact to="/harjoitusaikataulut" activeClassName="active">Aikataulut</NavLink>&nbsp;
-		<NavLink to="/harjoitus/listaa" activeClassName="active">Listaa sääpäiväkirjat</NavLink>&nbsp;
-		<NavLink to="/harjoitus/lisaa" activeClassName="active">Lisaa sääpäiväkirjamerkintä</NavLink>&nbsp;
-		<NavLink to="/harjoitus/saa" activeClassName="active">Sää</NavLink>&nbsp;
-		<NavLink to="/harjoitus/lisaaResepti" activeClassName="active">Lisää resepti</NavLink>&nbsp;
+		<NavLink exact to="/harjoitus/askeleet" activeClassName="active">Askeleet</NavLink>&nbsp;
+		<NavLink to="/harjoitus/listaa" activeClassName="active">Listaa treenipäiväkirjat</NavLink>&nbsp;
+		<NavLink to="/harjoitus/lisaa" activeClassName="active">Lisaa treenipäiväkirjamerkintä</NavLink>&nbsp;
 			<Switch>
-				<Route exact path="/harjoitus/aikataulut" component={Aikataulut} />
+				<Route exact path="/harjoitus/askeleet" component={Askeleet} />
 				<Route path="/harjoitus/listaa" component={ListaaMerkinnatSivu} />
-				<Route path="/harjoitus/lisaa" component={LisaaPaivakirjaMerkinta} />		
-				<Route path="/harjoitus/saa" component={SaaSivu} />
-				<Route path="/harjoitus/lisaaResepti" component={LisaaReseptiSivu} />
+				<Route path="/harjoitus/lisaa" component={LisaaTreeni} />		
 			</Switch>
 		</div>
 	)

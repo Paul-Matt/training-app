@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import Otsikko from '../components/Otsikko';
 import HarjoitusLomake from '../components/HarjoitusLomake';
 
-class LisaaPaivakirjaMerkinta extends Component {
+class LisaaTreeni extends Component {
   render() {
     return (
        <div>
-			<Otsikko teksti="Lisää sääpäiväkirjamerkintä" />
+			<Otsikko teksti="Lisää treenipäiväkirjamerkintä" />
 			<HarjoitusLomake />
 	   </div>
     );
   }
 }
-export default LisaaPaivakirjaMerkinta;
+export default LisaaTreeni;
