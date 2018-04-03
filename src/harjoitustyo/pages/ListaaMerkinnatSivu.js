@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Treenitaulukko from '../components/Treenitaulukko';
 
 
 class ListaaMerkinnatSivu extends Component {
   render() {
     return (
-      <div>Tähän tulee myöhemmin listaus treenipäiväkirjamerkinnöistä</div>
+      <div><Treenitaulukko /></div>
     );
   }
 }

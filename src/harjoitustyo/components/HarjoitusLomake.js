@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { lisaaTreeniKantaan} from '../api/TreeniApi';
+
 //class-tyyppinen, koska renderoi käyttöliittymää
 class HarjoitusLomake extends Component {
 	constructor(props) {
@@ -6,7 +8,8 @@ class HarjoitusLomake extends Component {
 		/*metodit sidottava luokkaan bindilla tai nuolinotaatiolla*/
 		this.muuta = this.muuta.bind(this);
 		this.lisaa = this.lisaa.bind(this);
-		this.state = {paiva: "", maastaveto: "", askelkyykky: "", ylatalja: "", pystypunnerrus: "", olankohautus: ""};
+		this.state = {paiva: "", aktivoivat: "", maastaveto: "", askelkyykky: "", ylatalja: "", pystypunnerrus: "", 
+		olankohautus: "", extrat: "", fiilis: ""};
 		
 	}
 	/*e.targetname--> hae otsikko, e target value-->hae elementti*/
@@ -21,7 +24,21 @@ class HarjoitusLomake extends Component {
 	
 	lisaa (e){
 		e.preventDefault();
+		lisaaTreeniKantaan({paiva:this.state.paiva, aktivoivat:this.state.aktivoivat, maastaveto:this.state.maastaveto, 
+		askelkyykky:this.state.askelkyykky, ylatalja: this.state.ylatalja, pystypunnerrus:this.state.pystypunnerrus, 
+		olankohautus:this.state.olankohautus, extrat:this.state.extrat, fiilis:this.state.fiilis}, this.kasitteleLisays);
 	}
+	
+	kasitteleLisays = (status) => {
+		//tarkistaa että muuttujan tietotyypit ja arvot ovat samat joten kolme = merkkiä
+		if (status === 200) {
+			document.location='listaa';
+		}
+		else{
+		alert(status);
+		}
+	}
+	
 	/*alla form:kun input-kenttä muuttuu, kutsutaan this-metodia, parametrina automaattisesti muuttuva event*/
   render() {
     return (
